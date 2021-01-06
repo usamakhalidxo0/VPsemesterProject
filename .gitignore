@@ -1,5 +1,6 @@
-.vs/
+
 VPsemesterProject.sln
-VPsemesterProject/bin
-VPsemesterProject/obj
-VPsemesterProject/Properties
+
+VPsemesterProject/obj/
+
+VPsemesterProject/
