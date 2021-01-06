@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Hammad Ali\Documents\Visual Studio 2015\Projects\VPsemesterProject\VPsemesterProject\bin\Debug\VPsemesterProject.exe.config
 C:\Users\Hammad Ali\Documents\Visual Studio 2015\Projects\VPsemesterProject\VPsemesterProject\bin\Debug\VPsemesterProject.exe
 C:\Users\Hammad Ali\Documents\Visual Studio 2015\Projects\VPsemesterProject\VPsemesterProject\bin\Debug\VPsemesterProject.pdb
@@ -7,3 +8,14 @@ C:\Users\Hammad Ali\Documents\Visual Studio 2015\Projects\VPsemesterProject\VPse
 C:\Users\Hammad Ali\Documents\Visual Studio 2015\Projects\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.csproj.GenerateResource.Cache
 C:\Users\Hammad Ali\Documents\Visual Studio 2015\Projects\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.exe
 C:\Users\Hammad Ali\Documents\Visual Studio 2015\Projects\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.pdb
+=======
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\bin\Debug\VPsemesterProject.exe.config
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\bin\Debug\VPsemesterProject.exe
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\bin\Debug\VPsemesterProject.pdb
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.csprojAssemblyReference.cache
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.Properties.Resources.resources
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.csproj.GenerateResource.cache
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.csproj.CoreCompileInputs.cache
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.exe
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.pdb
+>>>>>>> main
