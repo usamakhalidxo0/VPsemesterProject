@@ -1,0 +1,9 @@
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\bin\Debug\VPsemesterProject.exe.config
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\bin\Debug\VPsemesterProject.exe
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\bin\Debug\VPsemesterProject.pdb
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.csprojAssemblyReference.cache
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.Properties.Resources.resources
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.csproj.GenerateResource.cache
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.csproj.CoreCompileInputs.cache
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.exe
+C:\Users\usama\source\repos\VPsemesterProject\VPsemesterProject\obj\Debug\VPsemesterProject.pdb
