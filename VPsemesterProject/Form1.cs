@@ -83,6 +83,13 @@ namespace VPsemesterProject
             CartForm cartform = new CartForm();
             cartform.Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ManageInventory obj = new ManageInventory();
+            obj.Show();
+            
+        }
     }
 }
 
