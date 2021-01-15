@@ -16,7 +16,9 @@ namespace VPsemesterProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Connection.con.Open();
             Application.Run(new Form1());
+            Connection.con.Close();
         }
     }
 }
