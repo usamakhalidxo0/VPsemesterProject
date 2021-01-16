@@ -55,6 +55,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboBox1.Location = new System.Drawing.Point(341, 40);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(131, 21);
@@ -162,6 +163,7 @@
             this.Controls.Add(this.button1);
             this.Name = "AddItemForm";
             this.Text = "AddItemForm";
+            this.Load += new System.EventHandler(this.AddItemForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

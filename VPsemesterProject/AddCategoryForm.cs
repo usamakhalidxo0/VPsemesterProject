@@ -19,7 +19,15 @@ namespace VPsemesterProject
 
         private void button10_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Category has been added sucessfully");
+            try
+            {
+                Connection.addCategory(textBox1.Text);
+                MessageBox.Show("Category added successfully!");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void AddCategoryForm_Load(object sender, EventArgs e)
