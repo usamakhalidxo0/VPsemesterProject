@@ -41,39 +41,44 @@ namespace VPsemesterProject
             List<string> fields = new List<string>();
             Expression e = new Expression();
             ResultOrder[] order = new ResultOrder[1];
-            order[1] = new ResultOrder("name", OrderDirection.Ascending);
-            return client.Select("categories",0,0,fields,e,order);
+            order[0] = new ResultOrder("name", OrderDirection.Ascending);
+            return client.Select("categories",null,null,fields,e,order);
         }
         public static DataTable getBrands()
         {
             List<string> fields = new List<string>();
             Expression e = new Expression();
             ResultOrder[] order = new ResultOrder[1];
-            order[1] = new ResultOrder("name", OrderDirection.Ascending);
-            return client.Select("brands", 0, 0, fields, e,order);
+            order[0] = new ResultOrder("name", OrderDirection.Ascending);
+            return client.Select("brands", null, null, fields, e,order);
         }
         public static DataTable search(string query)
         {
             List<string> fields = new List<string>();
             char[] delimeters = { };
             string[] keywords = query.Split(delimeters, StringSplitOptions.RemoveEmptyEntries);
-            Expression e = new Expression("id",Operators.NotEquals,null);
+            string expression = "(1=1)";
+            //Expression e = new Expression();
             foreach (string s in keywords)
             {
-                Expression t = new Expression("productname", Operators.Contains, s);
-                t = new Expression {
-                    LeftTerm = new Expression("brand", Operators.Contains, s),
-                    Operator = Operators.Or,
-                    RightTerm = t
-                };
-                t = new Expression{
-                    LeftTerm = new Expression("category", Operators.Contains, s),
-                    Operator = Operators.Or,
-                    RightTerm =t
-                };
-                e = new Expression(e, Operators.And, t);
+                expression += " AND ((`productname` LIKE '%" + s + "%') OR (`brand` LIKE '%" + s + "%') OR (`category` LIKE '%" + s + "%'))";
+                //Expression t = new Expression("productname", Operators.Contains, s);
+                //t = new Expression
+                //{
+                //    LeftTerm = new Expression("brand", Operators.Contains, s),
+                //    Operator = Operators.Or,
+                //    RightTerm = t
+                //};
+                //t = new Expression
+                //{
+                //    LeftTerm = new Expression("category", Operators.Contains, s),
+                //    Operator = Operators.Or,
+                //    RightTerm = t
+                //};
+                //e = new Expression(e, Operators.And, t);
             }
-            return client.Select("inventory", 0, 0, fields, e);
+            //return client.Select("inventory", 0, 0, fields, e);
+            return client.Query("SELECT * from `inventory` WHERE " + expression + ";");
         }
         public static void deleteProduct(int id)
         {

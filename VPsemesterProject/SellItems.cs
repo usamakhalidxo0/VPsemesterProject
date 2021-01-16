@@ -23,7 +23,14 @@ namespace VPsemesterProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = Connection.search(textBox1.Text);
+            try
+            {
+                dataGridView1.DataSource = Connection.search(textBox1.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
