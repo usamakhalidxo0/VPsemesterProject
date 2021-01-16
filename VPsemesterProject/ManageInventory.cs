@@ -25,7 +25,7 @@ namespace VPsemesterProject
 
         private void addbrandbutton_Click(object sender, EventArgs e)
         {
-            AdddBrandForm addbrand = new AdddBrandForm();
+            AddBrandForm addbrand = new AddBrandForm();
             addbrand.Show();
         }
 
@@ -75,8 +75,7 @@ namespace VPsemesterProject
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Form1 obj = new Form1();
-            obj.Show();
+            
         }
     }
 }
