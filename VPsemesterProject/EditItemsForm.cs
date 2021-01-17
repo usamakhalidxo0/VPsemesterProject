@@ -10,9 +10,10 @@ using System.Windows.Forms;
 
 namespace VPsemesterProject
 {
-    public partial class SellItems : Form
+    public partial class EditItemsForm : Form
     {
-        public SellItems()
+        private DataTable table;
+        public EditItemsForm()
         {
             InitializeComponent();
         }
@@ -25,12 +26,23 @@ namespace VPsemesterProject
         {
             try
             {
-                dataGridView1.DataSource = Connection.search(textBox1.Text);
+                table = Connection.search(textBox1.Text);
+                dataGridView1.DataSource = table;
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                UpdateItemForm updt = new UpdateItemForm(table.Rows[e.RowIndex]);
+                updt.Show();
+            }
+            
         }
     }
 }

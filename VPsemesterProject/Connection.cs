@@ -78,7 +78,7 @@ namespace VPsemesterProject
                 //e = new Expression(e, Operators.And, t);
             }
             //return client.Select("inventory", 0, 0, fields, e);
-            return client.Query("SELECT * from `inventory` WHERE " + expression + ";");
+            return client.Query("SELECT * from `inventory` WHERE " + expression + " ORDER BY productname;");
         }
         public static void deleteProduct(int id)
         {
@@ -110,12 +110,18 @@ namespace VPsemesterProject
             Dictionary<string, object> d = new Dictionary<string, object>();
             d.Add("name", newName);
             client.Update("brands", d, new Expression("name", Operators.Equals, oldName));
+            d = new Dictionary<string, object>();
+            d.Add("brand", newName);
+            client.Update("inventory", d, new Expression("brand", Operators.Equals, oldName));
         }
         public static void updateCategory(string oldName, string newName)
         {
             Dictionary<string, object> d = new Dictionary<string, object>();
             d.Add("name", newName);
             client.Update("categories", d, new Expression("name", Operators.Equals, oldName));
+            d = new Dictionary<string, object>();
+            d.Add("category", newName);
+            client.Update("inventory", d, new Expression("category", Operators.Equals, oldName));
         }
     }
 }

@@ -50,7 +50,7 @@ namespace VPsemesterProject
 
         private void Edititembutton_Click(object sender, EventArgs e)
         {
-            EditItemForm edititem = new EditItemForm();
+            SellItemsForm edititem = new SellItemsForm();
             edititem.Show();
         }
 
