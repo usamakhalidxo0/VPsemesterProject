@@ -167,6 +167,12 @@
     <Compile Include="EditCategoryForm.Designer.cs">
       <DependentUpon>EditCategoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="OutOfStockForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +238,9 @@
     <EmbeddedResource Include="EditCategoryForm.resx">
       <DependentUpon>EditCategoryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OutOfStockForm.resx">
       <DependentUpon>OutOfStockForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +285,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\button.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gif.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7d707b62-bb0c-4828-8376-59c624b2937b.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mainpagegif.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mainpagegif1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7c678815c15bea1fbbb665cfa4ca1bbe__united_states_new_jersey_union_county_summit_springfield_avenue_784_kings_food_markets_37047.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tgif.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gobackbutton.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Capture.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -35,17 +35,129 @@ namespace VPsemesterProject
             comboBox2.Text = row.Field<string>("brand");
             textBox2.Text = row.Field<int>("price").ToString();
             textBox3.Text = row.Field<int>("quantity").ToString();
+            comboBox1.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            item.SetField<string>("productname",textBox1.Text);
-            item.SetField<string>("category", comboBox1.Text);
-            item.SetField<string>("brand", comboBox2.Text);
-            item.SetField<int>("price", Convert.ToInt32(textBox2.Text));
-            item.SetField<int>("quantity", Convert.ToInt32(textBox3.Text));
-            Connection.updateProduct(item.Field<int>("id"), item.Field<string>("productname"), item.Field<string>("category"), item.Field<string>("brand"), item.Field<int>("price"), item.Field<int>("quantity"));
-            MessageBox.Show("Your product has been updated");
+            if ((errorProvider1.GetError(textBox1) == "") && (errorProvider2.GetError(textBox2) == "") && (errorProvider3.GetError(textBox3) == ""))
+            {
+                item.SetField<string>("productname", textBox1.Text);
+                item.SetField<string>("category", comboBox1.Text);
+                item.SetField<string>("brand", comboBox2.Text);
+                item.SetField<int>("price", Convert.ToInt32(textBox2.Text));
+                item.SetField<int>("quantity", Convert.ToInt32(textBox3.Text));
+                Connection.updateProduct(item.Field<int>("id"), item.Field<string>("productname"), item.Field<string>("category"), item.Field<string>("brand"), item.Field<int>("price"), item.Field<int>("quantity"));
+                MessageBox.Show("Your product has been updated");
+            }
+            else
+            {
+                MessageBox.Show("Kindly enter all data in correct format");
+            }
+           
+        }
+        private bool txtEmptyStringIsValid(string str)
+        {
+
+            if (str == string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private bool txtAlphaStringIsValid(string str)
+        {
+
+            // test each character in the textbox
+            char[] testArr = str.ToCharArray();
+            bool testBool = false;
+
+            for (int i = 0; i < testArr.Length; i++)
+            {
+                if (!char.IsLetter(testArr[i]))
+                {
+                    testBool = true;
+                }
+                else { testBool = false; }
+            }
+
+            return testBool;
+        }
+
+        private void UpdateItemForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string str = textBox1.Text;
+            if (txtEmptyStringIsValid(str) == false)
+            {
+                if (txtAlphaStringIsValid(str) == false)
+                {
+                    errorProvider1.SetError(textBox1, "");
+                }
+                else
+                {
+                    errorProvider1.SetError(textBox1, "Name should be letter");
+                }
+            }
+            else
+            {
+                errorProvider1.SetError(textBox1, "Provide Name");
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            string str = textBox2.Text;
+            if (txtEmptyStringIsValid(str) == false)
+            {
+                if (txtAlphaStringIsValid(str) == true)
+                {
+                    errorProvider2.SetError(textBox2, "");
+                }
+                else
+                {
+                    errorProvider2.SetError(textBox2, "Price should be in digit");
+                }
+            }
+            else
+            {
+                errorProvider2.SetError(textBox2, "Provide Price");
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            string str = textBox3.Text;
+            if (txtEmptyStringIsValid(str) == false)
+            {
+                if (txtAlphaStringIsValid(str) == true)
+                {
+                    errorProvider3.SetError(textBox3, "");
+                }
+                else
+                {
+                    errorProvider3.SetError(textBox3, "quantity should be in digit");
+                }
+            }
+            else
+            {
+                errorProvider3.SetError(textBox3, "Provide quantity");
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            EditItemsForm obj = new EditItemsForm();
+            obj.Show();
         }
     }
 }
