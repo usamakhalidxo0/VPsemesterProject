@@ -123,5 +123,17 @@ namespace VPsemesterProject
             d.Add("category", newName);
             client.Update("inventory", d, new Expression("category", Operators.Equals, oldName));
         }
+        public static DataTable getItemsInCategory(string category)
+        {
+            return client.Select("inventory", null, null, new List<string>(), new Expression("category", Operators.Equals, category));
+        }
+        public static DataTable getItemsInBrand(string brand)
+        {
+            return client.Select("inventory", null, null, new List<string>(), new Expression("brand", Operators.Equals, brand));
+        }
+        public static DataTable getOutOfStock()
+        {
+            return client.Select("inventory", null, null, new List<string>(), new Expression("quantity", Operators.LessThanOrEqualTo, 0));
+        }
     }
 }

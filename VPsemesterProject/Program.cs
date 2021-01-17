@@ -16,7 +16,7 @@ namespace VPsemesterProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EditCategoryForm());
+            Application.Run(new OutOfStockForm());
         }
     }
 }
