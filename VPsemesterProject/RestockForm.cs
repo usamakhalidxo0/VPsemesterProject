@@ -39,7 +39,7 @@ namespace VPsemesterProject
             int quantiy = Convert.ToInt32(textBox1.Text);
             if (quantiy > 0)
             {
-                Connection.updateProduct(item.Field<int>("id"), item.Field<string>("productname"), item.Field<string>("category"), item.Field<string>("brand"), item.Field<int>("price"), quantiy);
+                Connection.updateProductQuantity(item.Field<int>("id"), quantiy);
                 item.Delete();
                 MessageBox.Show("Item has been restocked!");
             }

@@ -135,5 +135,17 @@ namespace VPsemesterProject
         {
             return client.Select("inventory", null, null, new List<string>(), new Expression("quantity", Operators.LessThanOrEqualTo, 0));
         }
+        public static void updateProductQuantity(int id, int quantity)
+        {
+            Dictionary<string, object> d = new Dictionary<string, object>();
+            d.Add("quantity", quantity);
+            client.Update("inventory", d, new Expression("id", Operators.Equals, id));
+        }
+
+        public static DataTable getAllSales()
+        {
+            return client.Select("sales", null, null, new List<string>(), new Expression());
+        }
+
     }
 }

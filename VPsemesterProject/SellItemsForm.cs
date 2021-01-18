@@ -29,14 +29,34 @@ namespace VPsemesterProject
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+}
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
             {
-
+                DataRow row = table.Rows[e.RowIndex];
+                if (row.Field<int>("quantity") <= 0)
+                {
+                    MessageBox.Show("Item out of stock!");
+                }
+                else
+                {
+                    if (Instance.cart.ids.Contains(row.Field<int>("id")))
+                        MessageBox.Show("Item already present in cart.\n Go to cart to change amount");
+                    else
+                    {
+                        Instance.cart.add(table.Rows[e.RowIndex]);
+                        MessageBox.Show("Item added to cart!");
+                    }
+                }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CartForm ctfm = new CartForm();
+            ctfm.Show();
         }
     }
 }

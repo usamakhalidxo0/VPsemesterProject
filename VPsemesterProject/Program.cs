@@ -21,7 +21,7 @@ namespace VPsemesterProject
 
            // Application.Run(new EditCategoryForm());
 
-            Application.Run(new MainMenu());
+            Application.Run(new SellItemsForm());
 
         }
     }
