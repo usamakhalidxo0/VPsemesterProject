@@ -12,13 +12,11 @@ namespace VPsemesterProject
 {
     public partial class UpdateItemForm : Form
     {
+        EditItemsForm previous;
         private DataRow item;
-        public UpdateItemForm()
+        public UpdateItemForm(DataRow row, EditItemsForm previous)
         {
-            InitializeComponent();
-        }
-        public UpdateItemForm(DataRow row)
-        {
+            this.previous = previous;
             InitializeComponent();
             item = row;
             label1.Text = row.Field<int>("id").ToString();
@@ -156,9 +154,8 @@ namespace VPsemesterProject
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            EditItemsForm obj = new EditItemsForm();
-            obj.Show();
+            this.previous.Show();
+            this.Close();
         }
     }
 }

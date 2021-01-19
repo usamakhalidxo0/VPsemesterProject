@@ -13,8 +13,10 @@ namespace VPsemesterProject
     public partial class SellItemsForm : Form
     {
         private DataTable table;
-        public SellItemsForm()
+        public MainMenu previous;
+        public SellItemsForm(MainMenu previous)
         {
+            this.previous = previous;
             InitializeComponent();
         }
 
@@ -56,7 +58,7 @@ namespace VPsemesterProject
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CartForm ctfm = new CartForm();
+            CartForm ctfm = new CartForm(this);
             ctfm.Show();
         }
 
@@ -69,9 +71,8 @@ namespace VPsemesterProject
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainMenu menu = new MainMenu();
-            menu.Show();
+            previous.Show();
+            this.Close();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -82,6 +83,19 @@ namespace VPsemesterProject
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                table = Connection.getItemsById();
+                dataGridView1.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

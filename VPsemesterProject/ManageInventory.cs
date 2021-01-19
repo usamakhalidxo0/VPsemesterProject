@@ -12,8 +12,10 @@ namespace VPsemesterProject
 {
     public partial class ManageInventory : Form
     {
-        public ManageInventory()
+        MainMenu previous;
+        public ManageInventory(MainMenu previous)
         {
+            this.previous = previous;
             InitializeComponent();
         }
 
@@ -22,7 +24,7 @@ namespace VPsemesterProject
             pictureBox2.Visible = true;
             MessageBox.Show("Screen is loading");
             this.Hide();
-            AddCategoryForm addcategory = new AddCategoryForm();
+            AddCategoryForm addcategory = new AddCategoryForm(this);
             addcategory.Show();
          
         }
@@ -32,7 +34,7 @@ namespace VPsemesterProject
             pictureBox2.Visible = true;
             MessageBox.Show("Screen is loading");
             this.Hide();
-            AddBrandForm addbrand = new AddBrandForm();
+            AddBrandForm addbrand = new AddBrandForm(this);
             addbrand.Show();
         }
 
@@ -41,7 +43,7 @@ namespace VPsemesterProject
             pictureBox2.Visible = true;
             MessageBox.Show("Screen is loading");
             this.Hide();
-            AddItemForm additem = new AddItemForm();
+            AddItemForm additem = new AddItemForm(this);
             additem.Show();
         }
 
@@ -50,7 +52,7 @@ namespace VPsemesterProject
             pictureBox2.Visible = true;
             MessageBox.Show("Screen is loading");
             this.Hide();
-            EditCategoryForm editcategory = new EditCategoryForm();
+            EditCategoryForm editcategory = new EditCategoryForm(this);
             editcategory.Show();
         }
 
@@ -59,7 +61,7 @@ namespace VPsemesterProject
             pictureBox2.Visible = true;
             MessageBox.Show("Screen is loading");
             this.Hide();
-            EditBrandForm editbrand = new EditBrandForm();
+            EditBrandForm editbrand = new EditBrandForm(this);
             editbrand.Show();
         }
 
@@ -68,7 +70,7 @@ namespace VPsemesterProject
             pictureBox2.Visible = true;
             MessageBox.Show("Screen is loading");
             this.Hide();
-            EditItemsForm edititem = new EditItemsForm();
+            EditItemsForm edititem = new EditItemsForm(this);
             edititem.Show();
         }
 
@@ -77,7 +79,7 @@ namespace VPsemesterProject
             pictureBox2.Visible = true;
             MessageBox.Show("Screen is loading");
             this.Hide();
-            DeleteCategoryForm deletecategory = new DeleteCategoryForm();
+            DeleteCategoryForm deletecategory = new DeleteCategoryForm(this);
             deletecategory.Show();
         }
 
@@ -86,7 +88,7 @@ namespace VPsemesterProject
             pictureBox2.Visible = true;
             MessageBox.Show("Screen is loading");
             this.Hide();
-            DeleteBrandForm deletebrand = new DeleteBrandForm();
+            DeleteBrandForm deletebrand = new DeleteBrandForm(this);
             deletebrand.Show();
         }
 
@@ -95,16 +97,15 @@ namespace VPsemesterProject
             pictureBox2.Visible = true;
             MessageBox.Show("Screen is loading");
             this.Hide();
-            DeleteItemForm deleteitem = new DeleteItemForm();
+            DeleteItemForm deleteitem = new DeleteItemForm(this);
             deleteitem.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-          
-            MainMenu menu = new MainMenu();
-            menu.Show();
-            Visible = false;
+
+            this.previous.Show();
+            this.Close();
            
         }
 

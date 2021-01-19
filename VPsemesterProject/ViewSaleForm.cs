@@ -15,12 +15,10 @@ namespace VPsemesterProject
 {
     public partial class ViewSaleForm : Form
     {
-        public ViewSaleForm()
+        AllSalesForm previous;
+        public ViewSaleForm(string file, AllSalesForm previous)
         {
-            InitializeComponent();
-        }
-        public ViewSaleForm(string file)
-        {
+            this.previous = previous;
             InitializeComponent();
             XLWorkbook workBook = new XLWorkbook("reciepts\\" + file + ".xlsx");
             IXLWorksheet workSheet = workBook.Worksheet(1);
@@ -39,7 +37,7 @@ namespace VPsemesterProject
                 else
                 {
                     dt.Rows.Add();
-                    for (int j=0; j< workSheet.Row(i).Cells().Count(); j++)
+                    for (int j=0; j< 7; j++)
                     {
                         dt.Rows[i-1][j] = workSheet.Row(i+1).Cell(j+1).Value.ToString();
                     }
@@ -80,11 +78,10 @@ namespace VPsemesterProject
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainMenu obj = new MainMenu();
-            obj.Show();
+            this.previous.Show();
+            this.Close();
         }
     }
 }

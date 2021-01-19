@@ -12,9 +12,11 @@ namespace VPsemesterProject
 {
     public partial class AllSalesForm : Form
     {
+        MainMenu previous;
         DataTable sales;
-        public AllSalesForm()
+        public AllSalesForm(MainMenu previous)
         {
+            this.previous = previous;
             InitializeComponent();
         }
 
@@ -28,16 +30,15 @@ namespace VPsemesterProject
         {
             if (e.ColumnIndex == 0)
             {
-                ViewSaleForm receipt = new ViewSaleForm(sales.Rows[e.RowIndex].Field<string>("salesid"));
+                ViewSaleForm receipt = new ViewSaleForm(sales.Rows[e.RowIndex].Field<string>("salesid"),this);
                 receipt.Show();
             }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainMenu menu = new MainMenu();
-            menu.Show();
+            this.previous.Show();
+            this.Close();
 
         }
 

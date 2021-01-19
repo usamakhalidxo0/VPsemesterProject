@@ -12,13 +12,11 @@ namespace VPsemesterProject
 {
     public partial class RestockForm : Form
     {
+        OutOfStockForm previous;
         DataRow item;
-        public RestockForm()
+        public RestockForm(DataRow row, OutOfStockForm previous)
         {
-            InitializeComponent();
-        }
-        public RestockForm(DataRow row)
-        {
+            this.previous = previous;
             InitializeComponent();
             item = row;
             label1.Text = row.Field<int>("id").ToString();
@@ -44,9 +42,8 @@ namespace VPsemesterProject
                     Connection.updateProductQuantity(item.Field<int>("id"), quantiy);
                     item.Delete();
                     MessageBox.Show("Item has been restocked!");
-                    OutOfStockForm obj = new OutOfStockForm();
-                    obj.Show();
-                    this.Hide();
+                    this.previous.Show();
+                    this.Close();
                 }
                 else MessageBox.Show("Stock is still empty!");
             }

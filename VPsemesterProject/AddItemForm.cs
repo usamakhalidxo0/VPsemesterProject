@@ -12,8 +12,10 @@ namespace VPsemesterProject
 {
     public partial class AddItemForm : Form
     {
-        public AddItemForm()
+        ManageInventory previous;
+        public AddItemForm(ManageInventory previous)
         {
+            this.previous = previous;
             InitializeComponent();
         }
 
@@ -140,74 +142,8 @@ namespace VPsemesterProject
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            MainMenu menu = new MainMenu();
-            menu.Show();
-            Visible = false;
-        }
-
-        private void addcategorybutton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            AddCategoryForm addcategory = new AddCategoryForm();
-            addcategory.Show();
-        }
-
-        private void addbrandbutton_Click(object sender, EventArgs e)
-        {
-
-            this.Hide();
-            AddBrandForm addbrand = new AddBrandForm();
-            addbrand.Show();
-        }
-
-        private void additembutton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            AddItemForm additem = new AddItemForm();
-            additem.Show();
-        }
-
-        private void EditCategorybutton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            EditCategoryForm editcategory = new EditCategoryForm();
-            editcategory.Show();
-        }
-
-        private void Editbrandbutton_Click(object sender, EventArgs e)
-        {
-
-            this.Hide();
-            EditBrandForm editbrand = new EditBrandForm();
-            editbrand.Show();
-        }
-
-        private void Edititembutton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            EditItemsForm edititem = new EditItemsForm();
-            edititem.Show();
-        }
-
-        private void Deletecategorybutton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DeleteCategoryForm deletecategory = new DeleteCategoryForm();
-            deletecategory.Show();
-        }
-
-        private void DeleteBrandbutton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DeleteBrandForm deletebrand = new DeleteBrandForm();
-            deletebrand.Show();
-        }
-
-        private void DeleteItembutton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DeleteItemForm deleteitem = new DeleteItemForm();
-            deleteitem.Show();
+            this.previous.Show();
+            this.Close();
         }
     }
 }

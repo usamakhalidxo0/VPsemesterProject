@@ -147,5 +147,10 @@ namespace VPsemesterProject
             return client.Select("sales", null, null, new List<string>(), new Expression());
         }
 
+        public static DataTable getItemsById()
+        {
+            return client.Select("inventory", null, null, new List<string>(), new Expression());
+        }
+
     }
 }
