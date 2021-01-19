@@ -20,8 +20,7 @@ namespace VPsemesterProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if ((errorProvider1.GetError(textBox1) == ""))
-            {
+           
                 try
                 {
                     table = Connection.search(textBox1.Text);
@@ -31,11 +30,8 @@ namespace VPsemesterProject
                 {
                     MessageBox.Show(ex.Message);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Kindly first enter data in correct format");
-            }
+           
+           
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -54,66 +50,23 @@ namespace VPsemesterProject
                     MessageBox.Show("Error while deleting Item", ex.Message);
                 }
         } }
-        private bool txtEmptyStringIsValid(string str)
-        {
-
-            if (str == string.Empty)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        private bool txtAlphaStringIsValid(string str)
-        {
-
-            // test each character in the textbox
-            char[] testArr = str.ToCharArray();
-            bool testBool = false;
-
-            for (int i = 0; i < testArr.Length; i++)
-            {
-                if (!char.IsLetter(testArr[i]))
-                {
-                    testBool = true;
-                }
-                else { testBool = false; }
-            }
-
-            return testBool;
-        }
+      
         private void DeleteItemForm_Load(object sender, EventArgs e)
         {
-
+            toolTip1.ShowAlways = true;
+            toolTip1.SetToolTip(button1, "Leave the field empty to get all items");
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string str = textBox1.Text;
-            if (txtEmptyStringIsValid(str) == false)
-            {
-                if (txtAlphaStringIsValid(str) == false)
-                {
-                    errorProvider1.SetError(textBox1, "");
-                }
-                else
-                {
-                    errorProvider1.SetError(textBox1, "Name should be letter");
-                }
-            }
-            else
-            {
-                errorProvider1.SetError(textBox1, "Provide Name");
-            }
+           
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ManageInventory manageinventory = new ManageInventory();
-            manageinventory.Show();
+            MainMenu menu = new MainMenu();
+            menu.Show();
+            Visible = false;
         }
 
         private void addcategorybutton_Click(object sender, EventArgs e)
@@ -179,6 +132,11 @@ namespace VPsemesterProject
             this.Hide();
             DeleteItemForm deleteitem = new DeleteItemForm();
             deleteitem.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

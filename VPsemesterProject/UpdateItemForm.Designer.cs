@@ -79,6 +79,7 @@
             // comboBox1
             // 
             this.comboBox1.BackColor = System.Drawing.Color.Peru;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.ForeColor = System.Drawing.Color.Maroon;
             this.comboBox1.FormattingEnabled = true;
@@ -90,6 +91,7 @@
             // comboBox2
             // 
             this.comboBox2.BackColor = System.Drawing.Color.Peru;
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.ForeColor = System.Drawing.Color.Maroon;
             this.comboBox2.FormattingEnabled = true;
@@ -225,9 +227,9 @@
             this.label9.ForeColor = System.Drawing.Color.Maroon;
             this.label9.Location = new System.Drawing.Point(166, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(450, 38);
+            this.label9.Size = new System.Drawing.Size(389, 38);
             this.label9.TabIndex = 40;
-            this.label9.Text = "Inventory Management System";
+            this.label9.Text = "Sales Management System";
             // 
             // pictureBox1
             // 

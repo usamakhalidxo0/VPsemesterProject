@@ -74,5 +74,17 @@ namespace VPsemesterProject
         private void ViewSaleForm_Load(object sender, EventArgs e)
         {
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainMenu obj = new MainMenu();
+            obj.Show();
+        }
     }
 }

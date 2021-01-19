@@ -132,9 +132,9 @@
             this.label3.ForeColor = System.Drawing.Color.Maroon;
             this.label3.Location = new System.Drawing.Point(226, -5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(450, 38);
+            this.label3.Size = new System.Drawing.Size(389, 38);
             this.label3.TabIndex = 38;
-            this.label3.Text = "Inventory Management System";
+            this.label3.Text = "Sales Management System";
             // 
             // pictureBox1
             // 

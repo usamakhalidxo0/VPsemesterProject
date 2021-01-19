@@ -32,5 +32,23 @@ namespace VPsemesterProject
                 receipt.Show();
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainMenu menu = new MainMenu();
+            menu.Show();
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

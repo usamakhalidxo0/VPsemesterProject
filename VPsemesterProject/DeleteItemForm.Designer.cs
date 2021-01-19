@@ -46,10 +46,10 @@
             this.addbrandbutton = new System.Windows.Forms.Button();
             this.addcategorybutton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -79,11 +79,11 @@
             this.button1.BackColor = System.Drawing.Color.Peru;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Maroon;
-            this.button1.Location = new System.Drawing.Point(552, 113);
+            this.button1.Location = new System.Drawing.Point(552, 83);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 34);
             this.button1.TabIndex = 11;
-            this.button1.Text = "Preview";
+            this.button1.Text = "Enter";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -92,7 +92,7 @@
             this.textBox1.BackColor = System.Drawing.Color.Peru;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.Maroon;
-            this.textBox1.Location = new System.Drawing.Point(311, 103);
+            this.textBox1.Location = new System.Drawing.Point(306, 83);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(171, 26);
             this.textBox1.TabIndex = 10;
@@ -103,7 +103,7 @@
             this.label1.BackColor = System.Drawing.Color.Peru;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(203, 103);
+            this.label1.Location = new System.Drawing.Point(203, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 24);
             this.label1.TabIndex = 9;
@@ -117,9 +117,9 @@
             this.label2.ForeColor = System.Drawing.Color.Maroon;
             this.label2.Location = new System.Drawing.Point(200, -6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(450, 38);
+            this.label2.Size = new System.Drawing.Size(389, 38);
             this.label2.TabIndex = 25;
-            this.label2.Text = "Inventory Management System";
+            this.label2.Text = "Sales Management System";
             // 
             // pictureBox1
             // 
@@ -262,9 +262,17 @@
             this.label3.TabIndex = 27;
             this.label3.Text = "DELETE ITEM";
             // 
-            // errorProvider1
+            // button3
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.button3.BackColor = System.Drawing.Color.Peru;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.Maroon;
+            this.button3.Location = new System.Drawing.Point(301, 115);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(176, 30);
+            this.button3.TabIndex = 41;
+            this.button3.Text = "List All By ID";
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // DeleteItemForm
             // 
@@ -273,6 +281,7 @@
             this.BackgroundImage = global::VPsemesterProject.Properties.Resources._7c678815c15bea1fbbb665cfa4ca1bbe__united_states_new_jersey_union_county_summit_springfield_avenue_784_kings_food_markets_37047;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(674, 360);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
@@ -294,7 +303,6 @@
             this.Load += new System.EventHandler(this.DeleteItemForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,6 +327,7 @@
         private System.Windows.Forms.Button addbrandbutton;
         private System.Windows.Forms.Button addcategorybutton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button3;
     }
 }

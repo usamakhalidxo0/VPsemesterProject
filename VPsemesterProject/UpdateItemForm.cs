@@ -90,7 +90,8 @@ namespace VPsemesterProject
 
         private void UpdateItemForm_Load(object sender, EventArgs e)
         {
-
+            comboBox1.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 0;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

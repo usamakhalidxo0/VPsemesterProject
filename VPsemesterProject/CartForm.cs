@@ -47,9 +47,13 @@ namespace VPsemesterProject
 
         private void CartForm_Load(object sender, EventArgs e)
         {
+            dataGridView1.BackColor = Color.LimeGreen;
+            dataGridView1.ForeColor = Color.DarkGreen;
+            dataGridView1.Font = new Font("Microsoft Sans Serif", 11, FontStyle.Regular, GraphicsUnit.Point);
             dataGridView1.DataSource = Instance.cart.data;
             if (Instance.cart.data.Rows.Count==0)
                 MessageBox.Show("No Items in cart");
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -58,11 +62,26 @@ namespace VPsemesterProject
             {
                 Instance.cart.checkOut();
                 MessageBox.Show("Sale successful!");
+                this.Hide();
+                ViewSaleForm receipt = new ViewSaleForm();
+                receipt.Show();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            SellItemsForm selobj = new SellItemsForm();
+            selobj.Show();
+            this.Hide();
+
+
+
+                
+
+        }
     }
 }

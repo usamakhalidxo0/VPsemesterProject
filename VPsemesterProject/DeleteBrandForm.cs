@@ -51,43 +51,13 @@ namespace VPsemesterProject
         {
 
         }
-        private bool txtEmptyStringIsValid(string str)
-        {
-
-            if (str == string.Empty)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        private bool txtAlphaStringIsValid(string str)
-        {
-
-            // test each character in the textbox
-            char[] testArr = str.ToCharArray();
-            bool testBool = false;
-
-            for (int i = 0; i < testArr.Length; i++)
-            {
-                if (!char.IsLetter(testArr[i]))
-                {
-                    testBool = true;
-                }
-                else { testBool = false; }
-            }
-
-            return testBool;
-        }
+        
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
-            this.Hide();
-            ManageInventory manageinventory = new ManageInventory();
-            manageinventory.Show();
+            MainMenu menu = new MainMenu();
+            menu.Show();
+            Visible = false;
         }
 
         private void addcategorybutton_Click(object sender, EventArgs e)

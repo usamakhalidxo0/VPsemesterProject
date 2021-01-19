@@ -55,8 +55,33 @@ namespace VPsemesterProject
 
         private void button2_Click(object sender, EventArgs e)
         {
+            this.Hide();
             CartForm ctfm = new CartForm();
             ctfm.Show();
+        }
+
+        private void SellItemsForm_Load(object sender, EventArgs e)
+        {
+            dataGridView1.BackColor = Color.LimeGreen;
+            dataGridView1.ForeColor = Color.DarkGreen;
+            dataGridView1.Font = new Font("Microsoft Sans Serif", 11, FontStyle.Regular, GraphicsUnit.Point);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainMenu menu = new MainMenu();
+            menu.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

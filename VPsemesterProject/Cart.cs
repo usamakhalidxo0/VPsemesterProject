@@ -88,7 +88,7 @@ namespace VPsemesterProject
                 table.Rows.Add(last);
 
                 XLWorkbook wb = new XLWorkbook();
-                wb.Worksheets.Add(table, salesid);
+                wb.Worksheets.Add(table, "sheet1");
                 wb.SaveAs("reciepts\\" + salesid+".xlsx");
                 data.Clear();
                 ids.Clear();

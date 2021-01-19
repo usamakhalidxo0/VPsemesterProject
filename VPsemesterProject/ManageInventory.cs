@@ -101,7 +101,11 @@ namespace VPsemesterProject
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+          
+            MainMenu menu = new MainMenu();
+            menu.Show();
+            Visible = false;
+           
         }
 
         private void ManageInventory_Load(object sender, EventArgs e)

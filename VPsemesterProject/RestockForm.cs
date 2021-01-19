@@ -36,14 +36,78 @@ namespace VPsemesterProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int quantiy = Convert.ToInt32(textBox1.Text);
-            if (quantiy > 0)
+            if ((errorProvider1.GetError(textBox1) == ""))
             {
-                Connection.updateProductQuantity(item.Field<int>("id"), quantiy);
-                item.Delete();
-                MessageBox.Show("Item has been restocked!");
+                int quantiy = Convert.ToInt32(textBox1.Text);
+                if (quantiy > 0)
+                {
+                    Connection.updateProductQuantity(item.Field<int>("id"), quantiy);
+                    item.Delete();
+                    MessageBox.Show("Item has been restocked!");
+                    OutOfStockForm obj = new OutOfStockForm();
+                    obj.Show();
+                    this.Hide();
+                }
+                else MessageBox.Show("Stock is still empty!");
             }
-            else MessageBox.Show("Stock is still empty!");
+            else
+            {
+                MessageBox.Show("Kindly enter correct quantity");
+            }
+        }
+
+        private void RestockForm_Load(object sender, EventArgs e)
+        {
+
+        }
+        private bool txtEmptyStringIsValid(string str)
+        {
+
+            if (str == string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private bool txtAlphaStringIsValid(string str)
+        {
+
+            // test each character in the textbox
+            char[] testArr = str.ToCharArray();
+            bool testBool = false;
+
+            for (int i = 0; i < testArr.Length; i++)
+            {
+                if (!char.IsLetter(testArr[i]))
+                {
+                    testBool = true;
+                }
+                else { testBool = false; }
+            }
+
+            return testBool;
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string str = textBox1.Text;
+            if (txtEmptyStringIsValid(str) == false)
+            {
+                if (txtAlphaStringIsValid(str) == true)
+                {
+                    errorProvider1.SetError(textBox1, "");
+                }
+                else
+                {
+                    errorProvider1.SetError(textBox1, "Quantity should be in digits");
+                }
+            }
+            else
+            {
+                errorProvider1.SetError(textBox1, "Provide quantity");
+            }
         }
     }
 }

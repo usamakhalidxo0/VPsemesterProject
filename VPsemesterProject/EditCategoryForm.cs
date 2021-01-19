@@ -93,9 +93,9 @@ namespace VPsemesterProject
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ManageInventory manageinventory = new ManageInventory();
-            manageinventory.Show();
+            MainMenu menu = new MainMenu();
+            menu.Show();
+            Visible = false;
         }
 
         private void addcategorybutton_Click(object sender, EventArgs e)

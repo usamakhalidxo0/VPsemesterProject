@@ -23,5 +23,46 @@ namespace VPsemesterProject
             ManageInventory manageinventory = new ManageInventory();
             manageinventory.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SellItemsForm sellitem = new SellItemsForm();
+            this.Hide();
+            sellitem.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OutOfStockForm outstock = new OutOfStockForm();
+            outstock.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AllSalesForm sales = new AllSalesForm();
+            sales.Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

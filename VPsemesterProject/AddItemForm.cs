@@ -89,14 +89,7 @@ namespace VPsemesterProject
             string str = textBox1.Text;
             if (txtEmptyStringIsValid(str) == false)
             {
-                if (txtAlphaStringIsValid(str) == false)
-                {
-                    errorProvider1.SetError(textBox1, "");
-                }
-                else
-                {
-                    errorProvider1.SetError(textBox1, "Name should be letter");
-                }
+                    errorProvider1.SetError(textBox1, ""); 
             }
             else
             {
@@ -147,10 +140,9 @@ namespace VPsemesterProject
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
-            this.Hide();
-            ManageInventory manageinventory = new ManageInventory();
-            manageinventory.Show();
+            MainMenu menu = new MainMenu();
+            menu.Show();
+            Visible = false;
         }
 
         private void addcategorybutton_Click(object sender, EventArgs e)
