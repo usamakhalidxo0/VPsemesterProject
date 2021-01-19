@@ -12,9 +12,11 @@ namespace VPsemesterProject
 {
     public partial class OutOfStockForm : Form
     {
+        MainMenu previous;
         private DataTable table;
-        public OutOfStockForm()
+        public OutOfStockForm(MainMenu previous)
         {
+            this.previous = previous;
             InitializeComponent();
         }
 
@@ -30,16 +32,15 @@ namespace VPsemesterProject
         {
             if (e.ColumnIndex == 0)
             {
-                RestockForm rstk = new RestockForm(table.Rows[e.RowIndex]);
+                RestockForm rstk = new RestockForm(table.Rows[e.RowIndex],this);
                 rstk.Show();
             }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainMenu menu = new MainMenu();
-            menu.Show();
+            this.previous.Show();
+            this.Close();
         }
     }
 }

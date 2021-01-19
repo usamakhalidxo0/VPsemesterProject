@@ -13,8 +13,10 @@ namespace VPsemesterProject
 {
     public partial class CartForm : Form
     {
-        public CartForm()
+        public SellItemsForm previous;
+        public CartForm(SellItemsForm previous)
         {
+            this.previous = previous;
             InitializeComponent();
         }
 
@@ -60,11 +62,7 @@ namespace VPsemesterProject
         {
             try
             {
-                Instance.cart.checkOut();
-                MessageBox.Show("Sale successful!");
-                this.Hide();
-                ViewSaleForm receipt = new ViewSaleForm();
-                receipt.Show();
+                Instance.cart.checkOut(this);
             }
             catch(Exception ex)
             {
@@ -74,14 +72,8 @@ namespace VPsemesterProject
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            SellItemsForm selobj = new SellItemsForm();
-            selobj.Show();
-            this.Hide();
-
-
-
-                
-
+            previous.Show();
+            this.Close();
         }
     }
 }

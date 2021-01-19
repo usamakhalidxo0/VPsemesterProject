@@ -10,6 +10,7 @@ using ClosedXML.Excel;
 using ClosedXML.Attributes;
 using ClosedXML.Utils;
 using System.IO;
+using System.Windows.Forms;
 
 namespace VPsemesterProject
 {
@@ -57,44 +58,43 @@ namespace VPsemesterProject
                 data.Rows[index].SetField<int>("amount", amount);
             }
         }
-        public void checkOut()
+        public void checkOut(CartForm current)
         {
             if (data.Rows.Count == 0)
                 throw new Exception("There are no Items in cart");
             else
             {
-                string salesid ="salesid "+ DateTime.Now.ToString().Replace(':', '_');
-
-                Dictionary<string, object> d = new Dictionary<string, object>();
-                d.Add("salesid", salesid);
-                Connection.client.Insert("sales", d);
-
-                DataTable table = data.Copy();
-
-                table.Columns.Add("total", typeof(int));
-                int grandtotal = 0;
-                foreach( DataRow r in table.Rows)
-                {
-                    int total = r.Field<int>("price") * r.Field<int>("amount");
-                    grandtotal += total;
-                    r.SetField<int>("total", total);
-                    int inStock;
-                    stock.TryGetValue(r.Field<int>("id"), out inStock);
-                    Connection.updateProductQuantity(r.Field<int>("id"), inStock - r.Field<int>("amount"));
-                }
-                DataRow last = table.NewRow();
-                last.SetField<int>("total", grandtotal);
-                last.SetField<string>("productname", salesid);
-                table.Rows.Add(last);
-
-                XLWorkbook wb = new XLWorkbook();
-                wb.Worksheets.Add(table, "sheet1");
-                wb.SaveAs("reciepts\\" + salesid+".xlsx");
-                data.Clear();
-                ids.Clear();
-                stock.Clear();
+                MakeSaleForm mksl = new MakeSaleForm(data,current);
+                mksl.Show();
+            }            
+        }
+        public void makeSale(DataTable table, string salesid,int bill, int recievedAmount)
+        {
+            for(int i=0; i< table.Rows.Count-1;i++)
+            {
+                DataRow r = table.Rows[i];
+                int inStock;
+                stock.TryGetValue(r.Field<int>("id"), out inStock);
+                Connection.updateProductQuantity(r.Field<int>("id"), inStock - r.Field<int>("amount"));
             }
-            
+            DataRow recieved = table.NewRow();
+            recieved.SetField<string>("productname", "Amount Recieved");
+            recieved.SetField<int>("total", recievedAmount);
+            table.Rows.Add(recieved);
+            DataRow remainder = table.NewRow();
+            remainder.SetField<string>("productname", "Remainder");
+            remainder.SetField<int>("total", recievedAmount - bill);
+            table.Rows.Add(remainder);
+            XLWorkbook wb = new XLWorkbook();
+            wb.Worksheets.Add(table, "sheet1");
+            wb.SaveAs("reciepts\\" + salesid + ".xlsx");
+            data.Clear();
+            ids.Clear();
+            stock.Clear();
+
+            Dictionary<string, object> d = new Dictionary<string, object>();
+            d.Add("salesid", salesid);
+            Connection.client.Insert("sales", d);
         }
     }
 

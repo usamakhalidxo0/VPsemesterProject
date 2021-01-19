@@ -20,27 +20,27 @@ namespace VPsemesterProject
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ManageInventory manageinventory = new ManageInventory();
+            ManageInventory manageinventory = new ManageInventory(this);
             manageinventory.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SellItemsForm sellitem = new SellItemsForm();
+            SellItemsForm sellitem = new SellItemsForm(this);
             this.Hide();
             sellitem.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            OutOfStockForm outstock = new OutOfStockForm();
+            OutOfStockForm outstock = new OutOfStockForm(this);
             outstock.Show();
             this.Hide();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            AllSalesForm sales = new AllSalesForm();
+            AllSalesForm sales = new AllSalesForm(this);
             sales.Show();
             this.Hide();
         }
