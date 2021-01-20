@@ -43,13 +43,13 @@ namespace VPsemesterProject
             n["brand"] = row["brand"];
             n["price"] = row["price"];
             n["amount"] = 1;
-            ids.Add(row.Field<int>("id"));
+            ids.Add(row.Field<int>("id")); 
             stock.Add(row.Field<int>("id"), row.Field<int>("quantity"));
             data.Rows.Add(n);
         }
         public void changeAmount(int index, int amount)
         {
-            int inStock;
+            int inStock;  
             stock.TryGetValue(data.Rows[index].Field<int>("id"),out inStock);
             if (inStock < amount)
                 throw new Exception("Amount excedes the number of items in stock");
@@ -79,7 +79,7 @@ namespace VPsemesterProject
             }
             DataRow recieved = table.NewRow();
             recieved.SetField<string>("productname", "Amount Recieved");
-            recieved.SetField<int>("total", recievedAmount);
+            recieved.SetField<int>("total", recievedAmount);  
             table.Rows.Add(recieved);
             DataRow remainder = table.NewRow();
             remainder.SetField<string>("productname", "Remainder");

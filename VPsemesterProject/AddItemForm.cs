@@ -38,7 +38,16 @@ namespace VPsemesterProject
                 MessageBox.Show("Kindly first enter data in correct format");
             }
         }
-
+        private const int WS_SYSMENU = 0x80000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style &= ~WS_SYSMENU;
+                return cp;
+            }
+        }
         private void AddItemForm_Load(object sender, EventArgs e)
         {
             DataTable categories = Connection.getCategories();

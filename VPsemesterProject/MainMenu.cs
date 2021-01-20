@@ -49,10 +49,20 @@ namespace VPsemesterProject
         {
            
         }
-
+        private const int WS_SYSMENU = 0x80000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style &= ~WS_SYSMENU;
+                return cp;
+            }
+        }
         private void MainMenu_Load(object sender, EventArgs e)
         {
-
+            DateTime now = DateTime.Now;
+            label6.Text = now.ToString();
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -61,6 +71,16 @@ namespace VPsemesterProject
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }

@@ -25,7 +25,16 @@ namespace VPsemesterProject
             toolTip1.ShowAlways = true;
             toolTip1.SetToolTip(button1, "Leave the field empty to get all items");
         }
-
+        private const int WS_SYSMENU = 0x80000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style &= ~WS_SYSMENU;
+                return cp;
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
            

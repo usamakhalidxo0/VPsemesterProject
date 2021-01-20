@@ -22,12 +22,12 @@ namespace VPsemesterProject
             d.Add("brand", brand);
             d.Add("price", price);
             d.Add("quantity", quantity);
-            client.Insert("inventory", d);
+            client.Insert("inventory", d); 
         }
         public static void addCategory(string name)
-        {
+        {       
             Dictionary<string, object> d = new Dictionary<string, object>();
-            d.Add("name", name);
+            d.Add("name", name);  
             client.Insert("categories", d);
         }
         public static void addBrand(string name)
@@ -58,26 +58,13 @@ namespace VPsemesterProject
             char[] delimeters = { };
             string[] keywords = query.Split(delimeters, StringSplitOptions.RemoveEmptyEntries);
             string expression = "(1=1)";
-            //Expression e = new Expression();
+           
             foreach (string s in keywords)
             {
                 expression += " AND ((`productname` LIKE '%" + s + "%') OR (`brand` LIKE '%" + s + "%') OR (`category` LIKE '%" + s + "%'))";
-                //Expression t = new Expression("productname", Operators.Contains, s);
-                //t = new Expression
-                //{
-                //    LeftTerm = new Expression("brand", Operators.Contains, s),
-                //    Operator = Operators.Or,
-                //    RightTerm = t
-                //};
-                //t = new Expression
-                //{
-                //    LeftTerm = new Expression("category", Operators.Contains, s),
-                //    Operator = Operators.Or,
-                //    RightTerm = t
-                //};
-                //e = new Expression(e, Operators.And, t);
+              
             }
-            //return client.Select("inventory", 0, 0, fields, e);
+           
             return client.Query("SELECT * from `inventory` WHERE " + expression + " ORDER BY productname;");
         }
         public static void deleteProduct(int id)
@@ -86,17 +73,17 @@ namespace VPsemesterProject
             client.Delete("inventory", e);
         }
         public static void deleteBrand(string brand)
-        {
+        {           
             client.Delete("inventory", new Expression("brand", Operators.Equals, brand));
             client.Delete("brands", new Expression("name", Operators.Equals, brand));
         }
         public static void deleteCategory(string category)
-        {
+        {            
             client.Delete("inventory", new Expression("category", Operators.Equals, category));
             client.Delete("categories", new Expression("name", Operators.Equals, category));
-        }
+        }          
         public static void updateProduct(int id, string productName, string category, string brand, int price, int quantity)
-        {
+        {   
             Dictionary<string, object> d = new Dictionary<string, object>();
             d.Add("productname", productName);
             d.Add("category", category);
@@ -119,7 +106,7 @@ namespace VPsemesterProject
             Dictionary<string, object> d = new Dictionary<string, object>();
             d.Add("name", newName);
             client.Update("categories", d, new Expression("name", Operators.Equals, oldName));
-            d = new Dictionary<string, object>();
+            d = new Dictionary<string, object>();         
             d.Add("category", newName);
             client.Update("inventory", d, new Expression("category", Operators.Equals, oldName));
         }
@@ -140,16 +127,16 @@ namespace VPsemesterProject
             Dictionary<string, object> d = new Dictionary<string, object>();
             d.Add("quantity", quantity);
             client.Update("inventory", d, new Expression("id", Operators.Equals, id));
-        }
+        }            
 
         public static DataTable getAllSales()
-        {
-            return client.Select("sales", null, null, new List<string>(), new Expression());
+        {               
+           return client.Select("sales", null, null, new List<string>(), new Expression());
         }
 
         public static DataTable getItemsById()
-        {
-            return client.Select("inventory", null, null, new List<string>(), new Expression());
+        {                     
+           return client.Select("inventory", null, null, new List<string>(), new Expression());
         }
 
     }

@@ -18,7 +18,16 @@ namespace VPsemesterProject
             this.previous = previous;
             InitializeComponent();
         }
-
+        private const int WS_SYSMENU = 0x80000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style &= ~WS_SYSMENU;
+                return cp;
+            }
+        }
         private void EditCategoryForm_Load(object sender, EventArgs e)
         {
             foreach (DataRow r in Connection.getCategories().Rows)
@@ -32,14 +41,30 @@ namespace VPsemesterProject
         {
             if ((errorProvider1.GetError(textBox1) == ""))
             {
-                Connection.updateCategory(comboBox1.Text, textBox1.Text);
-                MessageBox.Show("Your Category has been updated!");
-                comboBox1.Items.Clear();
-                foreach (DataRow r in Connection.getCategories().Rows)
+
+                bool check = false;
+                try {
+                    for (int i = 0; i < comboBox1.Items.Count; i++)
+                    {
+                        if (textBox1.Text == comboBox1.Items[i].ToString())
+                        {
+                            check = true;
+                        }
+                    }
+                } catch(Exception ex) { MessageBox.Show("An error has occures",ex.Message); }
+                if (check == true)
+                { MessageBox.Show("This category already exists!"); }
+                else
                 {
-                    comboBox1.Items.Add(r.Field<string>("name"));
+                    Connection.updateCategory(comboBox1.Text, textBox1.Text);
+                    MessageBox.Show("Your Category has been updated!");
+                    comboBox1.Items.Clear();
+                    foreach (DataRow r in Connection.getCategories().Rows)
+                    {
+                        comboBox1.Items.Add(r.Field<string>("name"));
+                    }
+                    comboBox1.SelectedIndex = 0;
                 }
-                comboBox1.SelectedIndex = 0;
             }
             else
             {

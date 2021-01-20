@@ -18,7 +18,16 @@ namespace VPsemesterProject
             this.previous = previous;
             InitializeComponent();
         }
-
+        private const int WS_SYSMENU = 0x80000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style &= ~WS_SYSMENU;
+                return cp;
+            }
+        }
         private void EditBrandForm_Load(object sender, EventArgs e)
         {
             foreach (DataRow r in Connection.getBrands().Rows)
@@ -32,14 +41,31 @@ namespace VPsemesterProject
         {
             if ((errorProvider1.GetError(textBox1) == ""))
             {
-                Connection.updateBrand(comboBox1.Text, textBox1.Text);
-                MessageBox.Show("Your Brand has been updated!");
-                comboBox1.Items.Clear();
-                foreach (DataRow r in Connection.getBrands().Rows)
+                bool check = false;
+                try
                 {
-                    comboBox1.Items.Add(r.Field<string>("name"));
+                    for (int i = 0; i < comboBox1.Items.Count; i++)
+                    {
+                        if (textBox1.Text == comboBox1.Items[i].ToString())
+                        {
+                            check = true;
+                        }
+                    }
                 }
-                comboBox1.SelectedIndex = 0;
+                catch (Exception ex) { MessageBox.Show("An error has occures", ex.Message); }
+                if (check == true)
+                { MessageBox.Show("This Brand already exists!"); }
+                else
+                {
+                    Connection.updateBrand(comboBox1.Text, textBox1.Text);
+                    MessageBox.Show("Your Brand has been updated!");
+                    comboBox1.Items.Clear();
+                    foreach (DataRow r in Connection.getBrands().Rows)
+                    {
+                        comboBox1.Items.Add(r.Field<string>("name"));
+                    }
+                    comboBox1.SelectedIndex = 0;
+                }
             }
             else
             {

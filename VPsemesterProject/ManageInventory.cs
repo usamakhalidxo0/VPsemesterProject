@@ -21,8 +21,8 @@ namespace VPsemesterProject
 
         private void addcategorybutton_Click(object sender, EventArgs e)
         {
-            pictureBox2.Visible = true;
-            MessageBox.Show("Screen is loading");
+           
+           
             this.Hide();
             AddCategoryForm addcategory = new AddCategoryForm(this);
             addcategory.Show();
@@ -31,8 +31,7 @@ namespace VPsemesterProject
 
         private void addbrandbutton_Click(object sender, EventArgs e)
         {
-            pictureBox2.Visible = true;
-            MessageBox.Show("Screen is loading");
+         
             this.Hide();
             AddBrandForm addbrand = new AddBrandForm(this);
             addbrand.Show();
@@ -40,8 +39,7 @@ namespace VPsemesterProject
 
         private void additembutton_Click(object sender, EventArgs e)
         {
-            pictureBox2.Visible = true;
-            MessageBox.Show("Screen is loading");
+            
             this.Hide();
             AddItemForm additem = new AddItemForm(this);
             additem.Show();
@@ -49,8 +47,6 @@ namespace VPsemesterProject
 
         private void EditCategorybutton_Click(object sender, EventArgs e)
         {
-            pictureBox2.Visible = true;
-            MessageBox.Show("Screen is loading");
             this.Hide();
             EditCategoryForm editcategory = new EditCategoryForm(this);
             editcategory.Show();
@@ -58,8 +54,7 @@ namespace VPsemesterProject
 
         private void Editbrandbutton_Click(object sender, EventArgs e)
         {
-            pictureBox2.Visible = true;
-            MessageBox.Show("Screen is loading");
+          
             this.Hide();
             EditBrandForm editbrand = new EditBrandForm(this);
             editbrand.Show();
@@ -67,8 +62,7 @@ namespace VPsemesterProject
 
         private void Edititembutton_Click(object sender, EventArgs e)
         {
-            pictureBox2.Visible = true;
-            MessageBox.Show("Screen is loading");
+           
             this.Hide();
             EditItemsForm edititem = new EditItemsForm(this);
             edititem.Show();
@@ -76,8 +70,7 @@ namespace VPsemesterProject
 
         private void Deletecategorybutton_Click(object sender, EventArgs e)
         {
-            pictureBox2.Visible = true;
-            MessageBox.Show("Screen is loading");
+          
             this.Hide();
             DeleteCategoryForm deletecategory = new DeleteCategoryForm(this);
             deletecategory.Show();
@@ -85,7 +78,7 @@ namespace VPsemesterProject
 
         private void DeleteBrandbutton_Click(object sender, EventArgs e)
         {
-            pictureBox2.Visible = true;
+         
             MessageBox.Show("Screen is loading");
             this.Hide();
             DeleteBrandForm deletebrand = new DeleteBrandForm(this);
@@ -94,7 +87,7 @@ namespace VPsemesterProject
 
         private void DeleteItembutton_Click(object sender, EventArgs e)
         {
-            pictureBox2.Visible = true;
+           
             MessageBox.Show("Screen is loading");
             this.Hide();
             DeleteItemForm deleteitem = new DeleteItemForm(this);
@@ -108,17 +101,25 @@ namespace VPsemesterProject
             this.Close();
            
         }
-
+        private const int WS_SYSMENU = 0x80000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style &= ~WS_SYSMENU;
+                return cp;
+            }
+        }
         private void ManageInventory_Load(object sender, EventArgs e)
         {
-            pictureBox2.Visible = false;
+            
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Stop();
-            pictureBox3.Dispose();
-            label1.Dispose();
+         
+          
         }
 
         private void label1_Click(object sender, EventArgs e)

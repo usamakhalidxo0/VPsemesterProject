@@ -52,7 +52,16 @@ namespace VPsemesterProject
                 MessageBox.Show("Kindly enter correct quantity");
             }
         }
-
+        private const int WS_SYSMENU = 0x80000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style &= ~WS_SYSMENU;
+                return cp;
+            }
+        }
         private void RestockForm_Load(object sender, EventArgs e)
         {
 

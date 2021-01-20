@@ -28,7 +28,7 @@ namespace VPsemesterProject
                 int total = r.Field<int>("price") * r.Field<int>("amount");
                 grandtotal += total;
                 r.SetField<int>("total", total);
-
+                     
             }
             DataRow last = table.NewRow();
             last.SetField<int>("total", grandtotal);
@@ -69,7 +69,7 @@ namespace VPsemesterProject
             }
             catch(FormatException ex)
             {
-                MessageBox.Show("Enter a valid number for amount!");
+                MessageBox.Show("Enter a valid number for amount!",ex.Message);
             }
             catch(Exception ex)
             {
@@ -81,6 +81,20 @@ namespace VPsemesterProject
         {
             previous.Show();
             this.Close();
+        }
+        private const int WS_SYSMENU = 0x80000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style &= ~WS_SYSMENU;
+                return cp;
+            }
+        }
+        private void MakeSaleForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

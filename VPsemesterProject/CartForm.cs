@@ -46,7 +46,16 @@ namespace VPsemesterProject
                 }
             }
         }
-
+        private const int WS_SYSMENU = 0x80000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.Style &= ~WS_SYSMENU;
+                return cp;
+            }
+        }
         private void CartForm_Load(object sender, EventArgs e)
         {
             dataGridView1.BackColor = Color.LimeGreen;
