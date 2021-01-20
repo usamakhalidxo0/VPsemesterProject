@@ -49,6 +49,12 @@ namespace VPsemesterProject
                 Connection.deleteCategory(comboBox1.Text);
 
                 MessageBox.Show("category succcessfully deleted");
+                comboBox1.Items.Clear();
+                foreach (DataRow r in Connection.getCategories().Rows)
+                {
+                    comboBox1.Items.Add(r.Field<string>("name"));
+                }
+                comboBox1.SelectedIndex = 0;
             }
             catch (Exception ex)
             {

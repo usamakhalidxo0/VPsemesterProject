@@ -43,7 +43,7 @@ namespace VPsemesterProject
                 try
                 {
                     Connection.deleteProduct(table.Rows[e.RowIndex].Field<int>("id"));
-                    table.Rows[e.RowIndex].Delete();
+                    table.Rows.RemoveAt(e.RowIndex);
 
                     MessageBox.Show("Item successsfully deleted");
                 }

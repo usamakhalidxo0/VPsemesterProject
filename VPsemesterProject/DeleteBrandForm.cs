@@ -50,6 +50,12 @@ namespace VPsemesterProject
                 Connection.deleteBrand(comboBox1.Text);
 
                 MessageBox.Show("Brand succcessfully deleted");
+                comboBox1.Items.Clear();
+                foreach (DataRow r in Connection.getBrands().Rows)
+                {
+                    comboBox1.Items.Add(r.Field<string>("name"));
+                }
+                comboBox1.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
