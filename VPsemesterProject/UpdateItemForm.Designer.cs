@@ -116,7 +116,7 @@
             this.textBox3.BackColor = System.Drawing.Color.Peru;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.Color.Maroon;
-            this.textBox3.Location = new System.Drawing.Point(389, 300);
+            this.textBox3.Location = new System.Drawing.Point(389, 302);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(130, 26);
             this.textBox3.TabIndex = 5;

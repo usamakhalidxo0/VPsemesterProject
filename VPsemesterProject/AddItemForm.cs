@@ -25,7 +25,16 @@ namespace VPsemesterProject
             {
                 try
                 {
-                    Connection.addProduct(textBox1.Text, comboBox1.Text, comboBox2.Text, Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox3.Text));
+                    int price = Convert.ToInt32(textBox2.Text),quantity= Convert.ToInt32(textBox3.Text);
+                    if (price <= 0)
+                    {
+                        throw new Exception("Item cannot have 0 or less than  it price!");
+                    }
+                    if(quantity < 0)
+                    {
+                        throw new Exception("Item cannot have less than 0 quantity!");
+                    }
+                    Connection.addProduct(textBox1.Text, comboBox1.Text, comboBox2.Text, price, quantity);
                     MessageBox.Show("Product added successfully!");
                 }
                 catch (Exception ex)

@@ -180,7 +180,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "EditItemsForm";
-            this.Text = "SellItems";
+            this.Text = "Edit Items";
             this.Load += new System.EventHandler(this.SellItems_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -79,7 +79,7 @@ namespace VPsemesterProject
         private void DeleteBrandbutton_Click(object sender, EventArgs e)
         {
          
-            MessageBox.Show("Screen is loading");
+           
             this.Hide();
             DeleteBrandForm deletebrand = new DeleteBrandForm(this);
             deletebrand.Show();
@@ -88,7 +88,7 @@ namespace VPsemesterProject
         private void DeleteItembutton_Click(object sender, EventArgs e)
         {
            
-            MessageBox.Show("Screen is loading");
+         
             this.Hide();
             DeleteItemForm deleteitem = new DeleteItemForm(this);
             deleteitem.Show();

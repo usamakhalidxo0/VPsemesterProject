@@ -44,6 +44,10 @@ namespace VPsemesterProject
             try
             {
                 recievedAmount = Convert.ToInt32(textBox1.Text);
+                if (recievedAmount <= 0)
+                {
+                    throw new Exception(" amount less or equal to zero cant be accepted");
+                }
                 int bill = table.Rows[table.Rows.Count - 1].Field<int>("total");
                 if (bill <= recievedAmount)
                 {

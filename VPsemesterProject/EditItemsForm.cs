@@ -57,6 +57,7 @@ namespace VPsemesterProject
             {
                 UpdateItemForm updt = new UpdateItemForm(table.Rows[e.RowIndex],this);
                 updt.Show();
+                this.Hide();
             }
             
         }

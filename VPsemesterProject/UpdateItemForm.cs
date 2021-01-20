@@ -33,22 +33,35 @@ namespace VPsemesterProject
             comboBox2.Text = row.Field<string>("brand");
             textBox2.Text = row.Field<int>("price").ToString();
             textBox3.Text = row.Field<int>("quantity").ToString();
-            comboBox1.SelectedIndex = 0;
-            comboBox2.SelectedIndex = 0;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if ((errorProvider1.GetError(textBox1) == "") && (errorProvider2.GetError(textBox2) == "") && (errorProvider3.GetError(textBox3) == ""))
             {
-                item.SetField<string>("productname", textBox1.Text);
-                item.SetField<string>("category", comboBox1.Text);
-                item.SetField<string>("brand", comboBox2.Text);
-                item.SetField<int>("price", Convert.ToInt32(textBox2.Text));
-                item.SetField<int>("quantity", Convert.ToInt32(textBox3.Text));
-                Connection.updateProduct(item.Field<int>("id"), item.Field<string>("productname"), item.Field<string>("category"), item.Field<string>("brand"), item.Field<int>("price"), item.Field<int>("quantity"));
-                MessageBox.Show("Your product has been updated");
-            }
+                try
+                {
+                    int price = Convert.ToInt32(textBox2.Text),quantity= Convert.ToInt32(textBox3.Text);
+                    if (price <= 0)
+                    {
+                        throw new Exception("Item cannot have 0 or less than it price!");
+                    }
+                    if (quantity < 0)
+                    {
+                        throw new Exception("Item cannot have less than 0 quantity!");
+                    }
+                    item.SetField<string>("productname", textBox1.Text);
+                    item.SetField<string>("category", comboBox1.Text);
+                    item.SetField<string>("brand", comboBox2.Text);
+                    item.SetField<int>("price", price);
+                    item.SetField<int>("quantity", quantity);
+                    Connection.updateProduct(item.Field<int>("id"), item.Field<string>("productname"), item.Field<string>("category"), item.Field<string>("brand"), item.Field<int>("price"), item.Field<int>("quantity"));
+                    MessageBox.Show("Your product has been updated");
+                }
+                catch (Exception ex)
+                { MessageBox.Show(ex.Message); }
+                }
             else
             {
                 MessageBox.Show("Kindly enter all data in correct format");
@@ -97,8 +110,7 @@ namespace VPsemesterProject
         }
         private void UpdateItemForm_Load(object sender, EventArgs e)
         {
-            comboBox1.SelectedIndex = 0;
-            comboBox2.SelectedIndex = 0;
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

@@ -37,22 +37,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -60,9 +60,9 @@
             this.button1.BackColor = System.Drawing.Color.Peru;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.button1.Location = new System.Drawing.Point(59, 103);
+            this.button1.Location = new System.Drawing.Point(33, 103);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 32);
+            this.button1.Size = new System.Drawing.Size(169, 32);
             this.button1.TabIndex = 0;
             this.button1.Text = "Manage Inventory";
             this.button1.UseVisualStyleBackColor = false;
@@ -173,17 +173,15 @@
             this.panel1.Size = new System.Drawing.Size(601, 237);
             this.panel1.TabIndex = 44;
             // 
-            // label1
+            // pictureBox5
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Peru;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(253, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 24);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "ACTIONS";
+            this.pictureBox5.Image = global::VPsemesterProject.Properties.Resources.checker;
+            this.pictureBox5.Location = new System.Drawing.Point(341, 137);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(125, 65);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 50;
+            this.pictureBox5.TabStop = false;
             // 
             // button5
             // 
@@ -197,37 +195,6 @@
             this.button5.Text = "Exit";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Maroon;
-            this.label6.Location = new System.Drawing.Point(422, 182);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 20);
-            this.label6.TabIndex = 45;
-            this.label6.Text = "ashgdadf";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::VPsemesterProject.Properties.Resources.admin;
-            this.pictureBox6.Location = new System.Drawing.Point(454, 66);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(117, 98);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 46;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::VPsemesterProject.Properties.Resources.checker;
-            this.pictureBox5.Location = new System.Drawing.Point(341, 137);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(125, 65);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 50;
-            this.pictureBox5.TabStop = false;
             // 
             // pictureBox4
             // 
@@ -271,6 +238,39 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Peru;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Maroon;
+            this.label1.Location = new System.Drawing.Point(253, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 24);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "ACTIONS";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Maroon;
+            this.label6.Location = new System.Drawing.Point(422, 182);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 20);
+            this.label6.TabIndex = 45;
+            this.label6.Text = "ashgdadf";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::VPsemesterProject.Properties.Resources.admin;
+            this.pictureBox6.Location = new System.Drawing.Point(454, 66);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(117, 98);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 46;
+            this.pictureBox6.TabStop = false;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,12 +289,12 @@
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
