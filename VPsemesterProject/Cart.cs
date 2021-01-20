@@ -32,7 +32,7 @@ namespace VPsemesterProject
         {
             ids.Remove(data.Rows[index].Field<int>("id"));
             stock.Remove(data.Rows[index].Field<int>("id"));
-            data.Rows[index].Delete();
+            data.Rows.RemoveAt(index);
         }
         public void add(DataRow row)
         {
